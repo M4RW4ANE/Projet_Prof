@@ -3,7 +3,7 @@ import re
 
 
 # Lecture du fichier ipynb
-with open(f'DataSet/Joly_Pierre.ipynb', 'r') as f:
+with open(f'DataSet/Robert_Louis.ipynb', 'r') as f:
     nb = nbformat.read(f, as_version=4)
 
 # on recupere toutes les cellules avec une note 
@@ -34,10 +34,10 @@ note_liste_enchar=[note00,note01,note1,note2,note3,note4,note5]
 note_liste_int=[]
 
 for i in note_liste_enchar:
-    a ='\n'.join(i.splitlines()[1:])
+    note_recup = i.split()[-1]
+    note_liste_int.append(int(note_recup))
 
-    a=re.findall('\d',a)
-    note_liste_int.append(int(a[len(a)-1]))
+print(note_liste_int)
 
 
 ponderations = [2, 2, 3, 2, 4, 1]
